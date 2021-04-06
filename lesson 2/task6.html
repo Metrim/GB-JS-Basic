@@ -14,18 +14,35 @@
         (использовать функции из пункта 5) и вернуть полученное значение (использовать switch).
         */
 
+
+        function addict(a, b) {
+            return a + b
+        }
+
+        function substract(a, b) {
+            return a - b
+        }
+
+        function magni(a, b) {
+            return a * b
+        }
+
+        function divide(a, b) {
+            return a / b
+        }
+
         function mathOperation(arg1, arg2, operation) {
             switch (operation) {
                 case 'addict':
-                    return `Сложение ${arg1} и ${arg2} равно: ${arg1 + arg2}`
+                    return addict(arg1, arg2)
                 case 'substract':
-                    return `Вычитание ${arg1} и ${arg2} равно: ${arg1 - arg2}`
+                    return substract(arg1, arg2)
                 case 'magni':
-                    return `Умножение ${arg1} и ${arg2} равно: ${arg1 * arg2}`
+                    return magni(arg1, arg2)
                 case 'divide':
-                    return `Деление ${arg1} и ${arg2} равно: ${arg1 / arg2}`
+                    return divide(arg1, arg2)
                 default:
-                    return 'Ошибка в названии операции'
+                    return null
             }
         }
 
@@ -33,14 +50,11 @@
         let a = 10;
         let b = 5;
 
-        alert(mathOperation(a, b, 'addict'))
-        alert(mathOperation(a, b, 'substract'))
-        alert(mathOperation(a, b, 'magni'))
-        alert(mathOperation(a, b, 'divide'))
-        alert(mathOperation(a, b, 'divided')) // отрабатываем и ошибку
-
-
-
+        alert('Сложение чисел ' + a + ' и ' + b + ': ' + mathOperation(a, b, 'addict'))
+        alert('Вычитание чисел ' + a + ' и ' + b + ': ' + mathOperation(a, b, 'substract'))
+        alert('Умножение чисел ' + a + ' и ' + b + ': ' + mathOperation(a, b, 'magni'))
+        alert('Деление чисел ' + a + ' и ' + b + ': ' + mathOperation(a, b, 'divide'))
+        alert('Пытаемся делить числа ' + a + ' и ' + b + ': ' + mathOperation(a, b, 'divided')) // отрабатываем и ошибку
 
     </script>
 </body>
