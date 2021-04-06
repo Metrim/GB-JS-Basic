@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task #1</title>
+</head>
+<body>
+    <script>
+        /**
+         * 1. С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+        */
+        
+        let n = 2 // один не простое число
+        const simpleArr = []
+
+        
+        // Алгоритм "В лоб" без решета Эратосфена
+        while (n < 101) {
+            if (simpleArr.length === 0) {
+                simpleArr.push(n)
+                console.log(n)
+                n++
+                continue
+            }
+
+            let FLAG = false
+            for (let index = 0; index < simpleArr.length; index++) {
+                const element = simpleArr[index];
+                if (n % element === 0)
+                    break 
+                if (index === simpleArr.length - 1){
+                    FLAG = true
+                }
+            }
+
+            if (FLAG) {
+                simpleArr.push(n)
+                console.log(n)
+            }
+            
+            n++
+        }
+        console.log(simpleArr) // итоговый массив простых чисел
+
+
+
+    </script>
+</body>
+</html>
