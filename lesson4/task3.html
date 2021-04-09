@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+    <script>
+        /**
+         * 3.* Подумать над глобальными сущностями. К примеру, сущность «Продукт» в интернет-магазине 
+         * актуальна не только для корзины, но и для каталога. Стремиться нужно к тому, чтобы объект 
+         * «Продукт» имел единую структуру для различных модулей сайта, 
+         * но в разных местах давал возможность вызывать разные методы.
+         */ 
+        
+         // Конструктор объекта Продукт
+        function createProduct(name, price) {
+            return {
+                product_name: name,
+                product_price: price,
+                lowerPriceAction() {
+                    this.product_price *= 0.9
+                }
+            }
+        }
+        
+        const Notebook = createProduct('Notebook', 1280) // Создаем объект Ноутбук
+        console.log(Notebook)
+        Notebook.lowerPriceAction() // Вызываем встроенную функциб изменения его цены
+        console.log(Notebook) // новая цена
+
+    </script>
+
+</body>
+</html>
