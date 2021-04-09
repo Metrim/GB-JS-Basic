@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+</head>
+<body>
+    <script>
+        'use strict'
+        /**
+        1. Написать функцию, преобразующую число в объект. Передавая на вход число от 0 до 999, 
+        мы должны получить на выходе объект, в котором в соответствующих свойствах описаны единицы, десятки и сотни. 
+        Например, для числа 245 мы должны получить следующий объект: {‘единицы’: 5, ‘десятки’: 4, ‘сотни’: 2}. 
+        Если число превышает 999, необходимо выдать соответствующее сообщение с помощью console.log и вернуть пустой объект.
+        */
+
+        function numberToObj(params) {
+            if (params > 999 || params < 0 || isNaN(params)) {
+                console.log('Вы ввели некорректное число')
+                return {}
+            }
+            return {
+                hundreds: Math.floor(params / 100),
+                dozens: Math.floor((params - Math.floor(params / 100)*100) / 10),
+                units: params % 10,
+            }     
+                   
+        }
+
+        console.log(numberToObj('two')) // возвращает {} пустой объект
+        console.log(numberToObj(1000)) // возвращает {} пустой объект
+        
+        console.log(numberToObj(123)) // 
+        // Возвращает:
+        // {
+        //     "hundreds": 1,
+        //     "dozens": 2,
+        //     "units": 3
+        //     }
+        console.log(numberToObj(23)) 
+        // Возвращает:
+        // {
+        //     "hundreds": 0,
+        //     "dozens": 2,
+        //     "units": 3
+        //     }        
+        console.log(numberToObj(3)) 
+        // Возвращает:
+        // {
+        //     "hundreds": 0,
+        //     "dozens": 0,
+        //     "units": 3
+        //     }
+    </script>
+</body>
+</html>
