@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task #3</title>
+    
+    <style>
+        .text p {
+            width: 35%;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <h1>Задача №3</h1>
+        <p>
+            Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре. Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
+            <ol>
+                <li>Пустая корзина должна выводить строку «Корзина пуста»;</li>
+                <li>Наполненная должна выводить «В корзине: n товаров на сумму m рублей».</li>
+            </ol>
+        </p>
+    </div>
+
+    <div id="basket"></div>
+
+    <div class="text">
+        <hr>
+        <h1>Задача №4</h1>
+        <p>
+            Сделать так, чтобы товары в каталоге выводились при помощи JS:
+            <ol>
+                <li>Создать массив товаров (сущность Product);</li>
+                <li>При загрузке страницы на базе данного массива генерировать вывод из него. HTML-код должен содержать только div id=”catalog” без вложенного кода. Весь вид каталога генерируется JS.</li>
+            </ol>
+        </p>
+    </div>
+    <div id="catalog"></div>
+
+    <script src="script3-4.js"></script>
+</body>
+</html>
