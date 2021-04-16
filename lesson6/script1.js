@@ -51,7 +51,24 @@ const cart = {
         this.goods = [];
         this.render();
     },
-
+    addGoodToBasket(good) {
+        for (let i = 0; i < this.goods.length; i++) {
+            if (this.goods[i].id_product === good.id_product) {
+                this.goods[i].quantity += 1
+                this.render();
+                return
+            } 
+        }
+        let goodBuffer = {
+                id_product: good.id_product,
+                product_name: good.product_name,
+                price: good.price,
+                quantity: 1,
+            }
+        this.goods.push(goodBuffer)
+        this.render();
+        return
+    },
 
 };
 
@@ -122,26 +139,12 @@ const Product = {
     addGoodCart(event) {
         for (let i = 0; i < this.goods.length; i++) {
             if (event.target.className === `btn-${this.goods[i].id_product}`) {
-                for (let j = 0; j < this.cart.goods.length; j++) {
-                    if (`btn-${this.cart.goods[j].id_product}` === `btn-${this.goods[i].id_product}`) {
-                        this.cart.goods[j].quantity += 1
-                        this.cart.render();
-                        return
-                    } 
-                }
-                let goodBuffer = {
-                        id_product: this.goods[i].id_product,
-                        product_name: this.goods[i].product_name,
-                        price: this.goods[i].price,
-                        quantity: 1,
-                    }
-                this.cart.goods.push(goodBuffer)
-                this.cart.render();
-                return
+                this.cart.addGoodToBasket(this.goods[i])
+
             }
             
         }
-    }
+    },
     
 }
 
