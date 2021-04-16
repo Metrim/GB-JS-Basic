@@ -129,9 +129,11 @@ const Product = {
                         return
                     } 
                 }
-                this.cart.goods.push(this.goods[i])
-                Object.assign(this.cart.goods[i], {'quantity': 1});
+                let goodBuffer = this.goods[i]
+                Object.assign(goodBuffer, {'quantity': 1});
+                this.cart.goods.push(goodBuffer)
                 this.cart.render();
+                return
             }
             
         }
