@@ -32,6 +32,7 @@ const cart = {
         this.render();
     },
     render() {
+        this.cartListBlock.innerHTML = ''
         if (this.goods.length) {
             this.goods.forEach(good => {
                 this.cartListBlock.insertAdjacentHTML('beforeend', this.cartItem.render(good));
@@ -62,6 +63,7 @@ const catalogItem = {
                     <div><b>Наименование</b>: ${good.product_name}</div>
                     <div><b>Цена за шт.</b>: ${good.price}</div>
                     <button class="btn-${good.id_product}">Добавить товар в корзину</button>
+                    <hr>
                 </div>`;
     }
 }
@@ -76,7 +78,7 @@ const Product = {
         {
             id_product: 123,
             product_name: "Ноутбук",
-            price: 45600,
+            price: 4500,
         },
         {
             id_product: 124,
@@ -86,17 +88,17 @@ const Product = {
         {
             id_product: 125,
             product_name: "Motherboard",
-            price: 600,
+            price: 500,
         },
         {
             id_product: 126,
             product_name: "PC",
-            price: 2600,
+            price: 2500,
         },
         {
             id_product: 127,
             product_name: "Monitor",
-            price: 800,
+            price: 1500,
         },
     ],
     init() {
@@ -110,6 +112,7 @@ const Product = {
         }
     },
     render() {
+        this.catalogListBlock
         if (this.goods.length) {
             this.goods.forEach(good => {
                 this.catalogListBlock.insertAdjacentHTML('beforeend', this.catalogItem.render(good));
@@ -117,12 +120,17 @@ const Product = {
         }
     },
     addGoodCart(event) {
-        
         for (let i = 0; i < this.goods.length; i++) {
-            console.log(event)
-            if (event.className === `btn-${this.goods[i].id_product}`) {
-                console.log('button pressed')
-                this.cart.push(this.goods[i])
+            if (event.target.className === `btn-${this.goods[i].id_product}`) {
+                for (let j = 0; j < this.cart.goods.length; j++) {
+                    if (`btn-${this.cart.goods[j].id_product}` === `btn-${this.goods[i].id_product}`) {
+                        this.cart.goods[j].quantity += 1
+                        this.cart.render();
+                        return
+                    } 
+                }
+                this.cart.goods.push(this.goods[i])
+                Object.assign(this.cart.goods[i], {'quantity': 1});
                 this.cart.render();
             }
             
